@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: black;
+            perspective: 800px;
+        }
+        #contain:hover{
+           animation-play-state: paused;
+        }
+        #contain{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            animation: xxx linear 1s infinite;
+        }
+        @keyframes xxx  {
+            from{
+
+            }
+            to
+            {
+                transform: rotateY(360deg);
+            }
+        }
+        div:not(#contain){
+            width: 200px;
+            height: 200px;
+            /*margin: 100px auto;*/
+            border-radius: 10px;
+            position: absolute;
+            background:rgba(255,255,255,.5);
+            line-height: 200px;
+            text-align: center;
+            font-size: 40px;
+        }
+        #div2{
+            transform: translateZ(100px);
+        }
+        #div4{
+            transform: rotateY(-180deg) translateZ(100px);
+        }
+        #div3{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        #div5{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        #div1{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        #div6{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+<div id="contain">
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+    <div id="div5">5</div>
+    <div id="div6">6</div>
+</div>
+</body>
+</html>
