@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+        }
+        #box{
+            margin:100px auto;
+            width:300px;
+            height: 350px;
+        }
+        li{
+            list-style: none;
+        }
+        #box #nav{
+            height: 30px;
+        }
+        #box #nav li{
+            float:left;
+            width: 85px;
+            height: 30px;
+            background: #ccc;
+            color:#ffffff;
+            margin-right: 15px;
+            line-height: 30px;
+            text-align: center;
+        }
+        #nav li:last-child{
+            margin-right:0;
+        }
+        #box #nav li.selected{
+            background: black;
+            color: red;
+        }
+        #box >div{
+            background:#cccccc ;
+            width:300px;
+            height: 200px;
+            position: absolute;
+            border-top:1px solid black;
+            /*display: none;*/
+        }
+        #box .show{
+            /*display: block;*/
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+<ul id="nav">
+    <li class="selected">111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+<div class="show">
+    1111111111111
+</div>
+    <div>
+        2222222222222
+    </div>
+    <div>
+        333333333333333333
+    </div>
+</div>
+<script>
+    // 显示隐藏
+    // var aLi=document.getElementsByTagName('li');
+    // var oBox=document.getElementById('box');
+    // var aDiv=oBox.getElementsByTagName('div');
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].index=i;
+    //     aLi[i].onclick=function () {
+    //     for (var j=0;j<aLi.length;j++){
+    //         aLi[j].className='';
+    //         aDiv[j].className='';
+    //     }
+    //     this.className='selected';
+    //     aDiv[this.index].className='show';
+    // }
+    // }
+
+    // var aLi=document.getElementsByTagName('li');
+    // var oBox=document.getElementById('box');
+    // var aDiv=oBox.getElementsByTagName('div');
+    // var zIndex=1;
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].index=i;
+    //     aLi[i].onclick=function () {
+    //         for (var j=0;j<aLi.length;j++){
+    //             aLi[j].className='';
+    //         }
+    //         this.className='selected';
+    //         aDiv[this.index].style.zIndex= ++zIndex ;
+    //     }
+    // }
+
+    var aLi=document.getElementsByTagName('li');
+    var oDiv=document.getElementsByTagName('show');
+   var arr =['1111111','2222222','3333333'];
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onclick=function () {
+            for (var j=0;j<aLi.length;j++){
+                aLi[j].className='';
+            }
+            this.className='selected';
+            oDiv.innerHTML=arr[this.index];
+        }
+    }
+</script>
+</body>
+</html>
