@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    #container{
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background-image: url("img/small.jpg");
+        float: left;
+        margin-right: 10px;
+    }
+    #box{
+        width: 200px;
+        height: 200px;
+        background: white;
+        opacity: 0.5;
+        position: absolute;
+        display:none;
+        cursor: move;
+        top:0;
+        left:0;
+    }
+    #big-img{
+        width: 400px;
+        height: 400px;
+        float: left;
+        overflow: hidden;
+        position: relative;
+        display: none;
+    }
+    #big-img img{
+        position: absolute;
+    }
+</style>
+<body>
+<div id="container">
+    <div id="box">
+
+    </div>
+</div>
+<div id="big-img">
+    <img src="img/big.jpg" alt="">
+</div>
+<script>
+    var oBox = document.getElementById('box');
+    var oCon = document.getElementById('container');
+    var oBigImg = document.getElementById('big-img');
+    var oImg = oBigImg.getElementsByTagName('img')[0];
+    oCon.onmouseover =function (){
+        oBox.style.display = 'block';
+        oBigImg.style.display = "block";
+        oCon.onmousemove = function (e) {
+            var divLeft = e.clientX - oBox.offsetWidth/2;
+            var divTop = e.clientY - oBox.offsetHeight/2;
+            if (divLeft> oCon.offsetWidth-oBox.offsetWidth){
+                divLeft = oCon.offsetWidth-oBox.offsetWidth;
+            } else if(divLeft<0){
+                divLeft=0;
+            }
+            if (divTop>oCon.offsetHeight-oBox.offsetHeight){
+                divTop=oCon.offsetHeight-oBox.offsetHeight;
+            } else if(divTop<0){
+                divTop=0;
+            }
+            oBox.style.left = divLeft+'px';
+            oBox.style.top = divTop+'px';
+
+            var xxx = divLeft / (oCon.offsetWidth-oBox.offsetWidth);
+            var bigLeft = xxx*(oBigImg.offsetWidth-oImg.offsetWidth);
+            var yyy = divTop / (oCon.offsetHeight-oBox.offsetHeight);
+            var bigTop = yyy*(oBigImg.offsetHeight-oImg.offsetHeight);
+
+            oImg.style.left = bigLeft + 'px';
+            oImg.style.top = bigTop + 'px';
+        }
+    }
+    oCon.onmouseout =function (){
+        oBox.style.display = 'none';
+        oBigImg.style.display = "none";
+    }
+</script>
+</body>
+</html>
