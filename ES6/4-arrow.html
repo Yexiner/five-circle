@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+</ul>
+</body>
+<script>
+    var aLi = document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function () {
+            // var that=this;
+            setTimeout( ()=> {
+                console.log(this.innerHTML);
+            },1000)
+        }
+    }
+    // 箭头函数里的this指向定义时函数；普通函数里的this指向运行时函数
+function fn(a,b){
+        console.log(a,b);
+    }
+    fn(1,2);
+
+    fn=(a,b)=>{
+        console.log(a,b);
+    }
+    fn(2,3);
+
+    function  User() {
+        this.name= 'zs';
+    }
+    User.prototype.say = function () {
+        
+    }
+    var u= new User();
+    console.log(u.name);
+//箭头函数没有构造函数
+    var obj= {
+        name:'zw',
+        age:12,
+        say:function () {
+            console.log(this.age);
+        }
+    }
+    obj.say();
+//箭头函数没有arguments
+  function fn() {
+      console.log(arguments[])
+  }
+  f(1);
+</script>
+</html>

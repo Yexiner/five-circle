@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var set=new Set();
+    set.add('123');
+    set.add(123);
+    set.add(true);
+    set.add('123');
+    set.delete('123');//删除数组元素
+    set.clear();//清楚数组元素
+    console.log(set);
+
+
+    //清除数组重复
+    var arr = [12,2,3,9,7,3,4,2];
+    //set使数组中不能有重复
+    // var s = new Set(arr);
+    // console.log(s);
+
+    // var obj = {};
+    // var newArr = [];
+    // for(var i=0;i<arr.length;i++){
+    //     if(!obj[newArr]){
+    //         newArr.push(arr[i]);
+    //         obj[arr[i]]=true;
+    //     }
+    // }
+    // console.log(newArr);
+
+    var newArr = [];
+    for(var i=0;i<arr.length;i++){
+        if (newArr.indexOf(arr[i]==-1)){
+        newArr.push(arr[i]);
+        }
+    }
+    console.log(newArr);
+
+    var entries = set.entries();
+    for(var key of entries){
+        console.log(key);
+    }
+</script>
+</html>

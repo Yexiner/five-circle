@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var a=[1,2,3];
+    var [x,y,z]=a;
+    // var [x,y,[z]]=a;报错
+    console.log(x,y,z);
+
+    var arr=[1,2,3,[4,5]];
+    var [x,y=10,z,w]=arr;
+    console.log(x,y,z,w);
+
+    //不设变量交换数值
+    var a=10,b=20;
+    // a = a+b;
+    // b = a-b;
+    // a = a-b;
+    // console.log(a,b);
+
+    // b = [a,a=b][0];
+    // console.log(a,b);
+
+    // var [a,b] = [b,a];
+    // console.log(a,b);
+
+    var obj={
+        a:1,
+        b:{d:2},
+        c:3
+    }
+    var {a:x,b:y} = obj;
+    console.log(x,y);
+
+</script>
+</html>
