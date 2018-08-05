@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">div1</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        console.log(1111);
+    });
+    consloe.log( $('#div1'));
+    window.onload = function(){
+        $('#div1').css('background','red');
+        console($('#div1')[0]);
+    }
+    //文档就绪函数
+    $('#div1').ready(function () {
+        console.log(1111);
+    })
+</script>
+
+</body>
+</html>

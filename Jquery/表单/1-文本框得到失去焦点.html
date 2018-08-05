@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        font:normal 12px/17px Arial;
+    }
+    div{
+        padding:2px;
+    }
+    input, textarea {
+        width: 12em;
+        border: 1px solid #888;
+    }
+    .foucs{
+        border: 1px solid #f00;
+        background: #fcc;
+    }
+</style>
+<body>
+<form action="" method="post" id="reg">
+<fieldset>
+<legend>个人信息：</legend>
+    <div>
+        <label for="username">名称：</label>
+        <input type="text" id="username">
+    </div>
+    <div>
+        <label for="psd">密码：</label>
+        <input type="password" id="psd">
+    </div>
+    <div>
+        <label for="mesg">详细信息：</label>
+        <textarea rows="2" cols="20" id="mesg"></textarea>
+    </div>
+
+</fieldset>
+</form>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+    $(':input').foucs(function () {
+        $(this).addClass('foucs');
+    }).blur(function () {
+        $(this).removeClass('foucs');
+    });
+    })
+</script>
+</body>
+</html>

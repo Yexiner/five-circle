@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse:collapse;
+        }
+        th{
+            border-bottom:1px solid #333;
+        }
+        .selected{
+            background: purple;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>班级</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三</td>
+        <td>001</td>
+        <td>电商</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>002</td>
+        <td>图书馆</td>
+    </tr>
+    <tr>
+        <td>王麻子</td>
+        <td>003</td>
+        <td>档案</td>
+    </tr>
+    <tr>
+        <td>赵四</td>
+        <td>004</td>
+        <td>信管</td>
+    </tr>
+    </tbody>
+</table>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $('tbody tr:odd').css('background','red');
+    $('tbody tr:even').css('background','blue');
+    $('tr:contains("电商")').css('background','pink');
+    $('tbody>tr').on('click',function () {
+        $(this).addClass('selected').siblings().removeClass().end().prop('checked',ture);
+    })
+</script>
+</body>
+</html>

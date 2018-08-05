@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #content{
+            width:100px;
+            height:100px;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div id="msg-caption">
+        <button id="up">向上</button>
+        <button id="down">向下</button>
+    </div>
+    <div>
+        <textarea id="content" rows="8" cols="20">成本卡号哈哈我公婆交给譬如交差别u并非出于i女i撒谎改变那次啊好吧开喷人群和v送号i和v查克拉三百v后i出版了i欧萨v篝火的设备v比较快你擦玻璃巨款的从v拉笔记本擦边v可举办活动v刚刚覅v阿库福的成绩三十vhi后才被围攻哟觉得v很快c'lBHKDJc成立时吧离开时</textarea>
+    </div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var $content = $('#content');
+            $('#up').click(function () {
+                if(!$content.is(':animated')){
+                        $content.animate({scrollTop:'-=50'},400);
+                }
+            });
+            $('#down').on('click',function () {
+                    if($content.height()>50){
+                        $content.animate({scrollTop:'+=50'},400);
+                }
+            });
+        })
+    </script>
+</form>
+</body>
