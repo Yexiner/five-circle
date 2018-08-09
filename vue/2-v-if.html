@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<p v-if="xx=='A'">
+    pppppp
+</p>
+    <h1 v-else-if=" xx=='B' ">
+        h1h1h1h1
+    </h1>
+    <span v-else>
+        spanspanspan
+    </span>
+</p>
+    <!--template是模块，里面的内容独立成块，但是不适用v-show-->
+    <!--<template v-show="msg">-->
+        <!--<p>-->
+            <!--pppppp-->
+        <!--</p>-->
+        <!--<h1>-->
+            <!--h1h1h1h1-->
+        <!--</h1>-->
+        <!--<span v-else>-->
+        <!--spanspanspan-->
+    <!--</span>-->
+    <!--</template>-->
+
+    <div v-show="msg">
+        <p>
+            pppppp
+        </p>
+        <h1>
+            h1h1h1h1
+        </h1>
+        <span v-else>
+        spanspanspan
+    </span>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue(
+        {
+            el:'#app',
+            data:{
+                msg:false,
+                xx:'A'
+            }
+        }
+    )
+</script>
+</body>
+</html>
