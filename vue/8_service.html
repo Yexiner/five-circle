@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        h1{
+            text-align: center;
+        }
+        #app{
+            width: 200px;
+            height: 370px;
+            margin: 0 auto;
+            position: relative;
+        }
+        li{
+            width: 200px;
+            height: 50px;
+            margin-bottom: 10px;
+            list-style: none;
+            line-height: 50px;
+            background: green;
+        }
+        .red{
+            background: red;
+        }
+        .green{
+            background: green;
+        }
+        span{
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>services</h1>
+    <ul>
+        <li v-for="(obj,index) in services" :class="{red:obj.active}" @click=" fn(obj)">
+            {{obj.name}}<span>{{obj.num}}</span>
+        </li>
+    </ul>
+    <hr>
+    total:<span>{{msg}}</span>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:0,
+                // isRed:false,
+                services:[
+                    {
+                        name:'aaaaa',
+                        num:234,
+                        active:false
+                    },{
+                        name:'bbbb',
+                        num:927,
+                        active:false
+                    },{
+                        name:'cccccc',
+                        num:247,
+                        active:false
+                    },{
+                        name:'dddddd',
+                        num:316,
+                        active:false
+                    },{
+                        name:'eeeeeee',
+                        num:532,
+                        active:false
+                    },
+                ]
+            },
+            methods:{
+                fn(obj) {
+                    obj.active = !obj.active;
+                    if(obj.active){
+                        this.msg += obj.num;
+                    }else{
+                        this.msg -= obj.num;
+                    }
+                }
+            }
+        })
+    </script>
+</div>
+</body>
+</html>
