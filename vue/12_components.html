@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app1">
+    <!--js中大写，HTML中除了第一个后面的用“-”隔开-->
+    <demo1 :xx="m1" w-w="123"></demo1>
+    <demo1 :yy="m2"></demo1>
+    {{msg}}
+</div>
+<div id="app2">
+    <demo2></demo2>
+    {{msg}}
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    //全局组件
+    // Vue.component('demo',{
+    //     template:"<div>div1<h1>hhhhhhhhh</h1></div>"
+    // });
+    new Vue({
+        el:'#app1',
+        data:{
+            msg:'xx',
+            m1:'hahaha',
+            m2:'xixixi',
+
+        },
+        //局部组件
+        components:{
+            demo1:{
+                template:"<div>{{xx}}{{WW}}<h1>{{yy}}</h1></div>",
+                props:['xx','yy','WW']
+            }
+        }
+    });
+    new Vue({
+        el:'#app2',
+        data:{
+            msg:'xx'
+        },
+     components:{
+         demo2:{
+             template:"<div>div1<h1>hhhhhhhhh</h1></div>"
+         }
+     }
+    })
+</script>
+</html>

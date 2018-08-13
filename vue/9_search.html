@@ -41,7 +41,7 @@
                 //此处使用箭头函数，使this指向
                 var newArr = this.arr.filter((elem,index)=>{
                     console.log(1111);
-                    return elem.value.indexOf(this.val)!=-1;
+                    return elem.value.indexOf(this.val)!=-1;//筛选
     });
                 this.showArr = newArr;
             }
