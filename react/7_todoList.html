@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #main{
+            width: 400px;
+            margin:0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script src="browser.min.js"></script>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script type="text/babel">
+    class Main extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                    list:[
+                {name:'吃饭'},
+                {name:'睡觉'},
+                {name:'看书'},
+                {name:'吃鸡'}
+                ]
+            }
+        }
+        saveHandle(val){
+            // console.log(111)
+            var arr = this.state.list;
+            arr.push({name:val});
+            this.setState({
+                list:arr
+            })
+        }
+        render(){
+            return(
+                <div>
+                    <h1>todoList</h1>
+                    <Ipt myClick={this.saveHandle.bind(this)}></Ipt>
+                    <ul>
+                        {
+                            this.state.list.map((item,index)=>{
+                                return <List key={index} item={item}></List>
+                            })
+                        }
+                        <li>0已完成/0全部</li>
+                    </ul>
+
+                </div>
+            )
+        }
+    }
+    class Ipt extends React.Component{
+        constructor(props){
+            super(props);
+        }
+        save(){
+            this.props.myClick(this.refs.myText.value);
+            this.refs.myText.value='';
+        }
+        render(){
+            return(
+                <div>
+                   <label htmlFor="name">任务：</label>
+                    <input type="text" id="name" placeholder="安排新的任务吧！" ref="myText"/>
+                  <br/>
+                    <button onClick={this.save.bind(this)}>保存任务</button>
+                </div>
+            );
+        }
+    }
+    class List extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+
+            }
+        }
+        render(){
+            return(
+                <div>
+                       <input type="checkbox"/>
+                       <span>{this.props.item.name}</span>
+                    <button>删除</button>
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(
+        <Main></Main>,
+        document.getElementById('main')
+    )
+</script>
+</body>
+</html>
